@@ -4,7 +4,8 @@ import json
 from pathlib import Path
 
 # Initialize the Flask application
-app = Flask(__name__, template_folder="templates", static_folder="static")
+# 
+app = Flask(__name__,template_folder="templates", static_folder="static")
 
 @app.route("/")
 def index():
