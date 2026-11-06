@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Appointments — Bloom{% endblock %}
+{% block content %}
+{% include "pages/_heading.html" %}
+<section class="card">
+    <p class="card-description">Upcoming dates, soonest first.</p>
+    <div class="item-list" id="appointment-list"></div>
+    <form class="inline-form" id="appointment-form">
+        <input name="title" type="text" placeholder="Appointment" aria-label="Appointment title" required>
+        <input name="date" id="appointment-date" type="date" aria-label="Appointment date" required>
+        <button class="icon-button" type="submit" aria-label="Add appointment">+</button>
+    </form>
+</section>
+{% endblock %}

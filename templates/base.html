@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bloom — your journey, your pace{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar">
+        <a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">✿</span>bloom</a>
+        <p class="nav-label">YOUR TOOLS</p>
+        <nav class="main-nav" aria-label="Main">
+            <a class="nav-link{% if active == 'home' %} active{% endif %}" href="{{ url_for('index') }}"><span>⌂</span>Home</a>
+            {% for t in tools %}
+            <a class="nav-link{% if active == t.slug %} active{% endif %}" href="{{ url_for('tool_page', slug=t.slug) }}"><span>{{ t.icon }}</span>{{ t.name }}</a>
+            {% endfor %}
+        </nav>
+        <div class="sidebar-note">
+            <span class="note-sparkle">✦</span>
+            <p>Small steps still count.</p>
+        </div>
+        <div class="privacy-indicator"><span class="privacy-dot"></span>Private — saved only on this device</div>
+    </aside>
+
+    <main class="main-content">
+        <div class="topbar">
+            <span class="date-label" id="today-date"></span>
+            <button class="text-button" id="clear-data" type="button">Clear data</button>
+        </div>
+        {% block content %}{% endblock %}
+        <footer class="page-footer">
+            <p id="save-status" role="status">Saved on this device.</p>
+            <p>Bloom is a companion, not medical advice.</p>
+        </footer>
+    </main>
+</div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

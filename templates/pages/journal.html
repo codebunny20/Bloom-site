@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Journal — Bloom{% endblock %}
+{% block content %}
+{% include "pages/_heading.html" %}
+<section class="card">
+    <form class="journal-form" id="journal-form">
+        <label class="sr-only" for="journal-entry">Journal entry</label>
+        <textarea id="journal-entry" name="entry" placeholder="Write whatever is on your mind…" required></textarea>
+        <div class="form-footer">
+            <span class="quiet-note">Only visible to you.</span>
+            <button class="small-button" type="submit">Save entry</button>
+        </div>
+    </form>
+    <div class="journal-list" id="journal-list"></div>
+</section>
+{% endblock %}

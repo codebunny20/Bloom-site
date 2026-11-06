@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Mood check-in — Bloom{% endblock %}
+{% block content %}
+{% include "pages/_heading.html" %}
+<div class="mood-card">
+    <div class="mood-options">
+        <button class="mood-option" type="button" data-mood="great" aria-pressed="false"><span class="mood-face">☀</span>Great</button>
+        <button class="mood-option" type="button" data-mood="okay" aria-pressed="false"><span class="mood-face">☺</span>Okay</button>
+        <button class="mood-option" type="button" data-mood="low" aria-pressed="false"><span class="mood-face">☁</span>Low</button>
+        <button class="mood-option" type="button" data-mood="tough" aria-pressed="false"><span class="mood-face">☂</span>Tough</button>
+    </div>
+    <p class="mood-response" id="mood-response" aria-live="polite"></p>
+</div>
+{% endblock %}

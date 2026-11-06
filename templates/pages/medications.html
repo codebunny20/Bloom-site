@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Medications — Bloom{% endblock %}
+{% block content %}
+{% include "pages/_heading.html" %}
+<section class="card">
+    <p class="card-description">Tick a medication off when you've taken it today.</p>
+    <div class="item-list" id="medication-list"></div>
+    <form class="inline-form" id="medication-form">
+        <input name="name" type="text" placeholder="Medication" aria-label="Medication name" required>
+        <input name="dose" type="text" placeholder="Dose (optional)" aria-label="Dose">
+        <button class="icon-button" type="submit" aria-label="Add medication">+</button>
+    </form>
+</section>
+{% endblock %}

@@ -1,11 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bloom</title>
-</head>
-<body>
-    <h1>Welcome to bloom</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<section class="welcome-section">
+    <div>
+        <p class="eyebrow">WELCOME TO BLOOM</p>
+        <h1>Your journey, <em>your pace.</em></h1>
+        <p class="welcome-copy">Pick a tool below whenever you need it. Nothing here is required — come back anytime.</p>
+    </div>
+    <div class="welcome-art" aria-hidden="true">
+        <span class="art-sun"></span><span class="art-stem"></span>
+        <span class="art-leaf art-leaf-one"></span><span class="art-leaf art-leaf-two"></span>
+        <span class="art-flower">✿</span>
+    </div>
+</section>
+
+<div class="section-heading checkin-heading">
+    <div><p class="eyebrow">TOOLS</p><h2>What would help today?</h2></div>
+</div>
+<div class="dashboard-grid tool-grid">
+    {% for t in tools %}
+    <a class="card tool-card" href="{{ url_for('tool_page', slug=t.slug) }}">
+        <div class="card-heading">
+            <h2>{{ t.name }}</h2>
+            <span class="card-icon {{ t.tint }}">{{ t.icon }}</span>
+        </div>
+        <p class="card-description">{{ t.description }}</p>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Milestones — Bloom{% endblock %}
+{% block content %}
+{% include "pages/_heading.html" %}
+<section class="card">
+    <form class="inline-form milestone-form" id="milestone-form">
+        <input name="milestone" type="text" placeholder="Something worth celebrating" aria-label="Milestone" required>
+        <button class="icon-button" type="submit" aria-label="Add milestone">+</button>
+    </form>
+    <ul class="milestone-list" id="milestone-list"></ul>
+</section>
+{% endblock %}
