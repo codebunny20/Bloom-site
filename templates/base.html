@@ -8,13 +8,16 @@
 </head>
 <body>
 <div class="app-shell">
-    <aside class="sidebar">
-        <a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">✿</span>bloom</a>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a class="brand" href="{{ url_for('index') }}" aria-label="Bloom home" title="Bloom home"><span class="brand-mark">✿</span><span class="brand-name">bloom</span></a>
+            <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-label="Collapse sidebar" aria-controls="sidebar" aria-expanded="true" title="Collapse sidebar">‹</button>
+        </div>
         <p class="nav-label">YOUR TOOLS</p>
         <nav class="main-nav" aria-label="Main">
-            <a class="nav-link{% if active == 'home' %} active{% endif %}" href="{{ url_for('index') }}"><span>⌂</span>Home</a>
+            <a class="nav-link{% if active == 'home' %} active{% endif %}" href="{{ url_for('index') }}" aria-label="Home" title="Home"><span>⌂</span><span class="nav-link-label">Home</span></a>
             {% for t in tools %}
-            <a class="nav-link{% if active == t.slug %} active{% endif %}" href="{{ url_for('tool_page', slug=t.slug) }}"><span>{{ t.icon }}</span>{{ t.name }}</a>
+            <a class="nav-link{% if active == t.slug %} active{% endif %}" href="{{ url_for('tool_page', slug=t.slug) }}" aria-label="{{ t.name }}" title="{{ t.name }}"><span>{{ t.icon }}</span><span class="nav-link-label">{{ t.name }}</span></a>
             {% endfor %}
         </nav>
         <div class="sidebar-note">

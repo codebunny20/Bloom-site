@@ -19,6 +19,14 @@ TOOLS = [
 ]
 TOOLS_BY_SLUG = {tool["slug"]: tool for tool in TOOLS}
 
+@app.route("/<slug>")
+def tool_page(slug):
+    tool = TOOLS_BY_SLUG.get(slug)
+    if tool is None:
+        abort(404)
+    return render_template(f"pages/{slug}.html", tool=tool, active=slug)
+
+
 
 @app.context_processor
 def inject_tools():
@@ -30,12 +38,6 @@ def index():
     return render_template("index.html", active="home")
 
 
-@app.route("/<slug>")
-def tool_page(slug):
-    tool = TOOLS_BY_SLUG.get(slug)
-    if tool is None:
-        abort(404)
-    return render_template(f"pages/{slug}.html", tool=tool, active=slug)
 
 
 if __name__ == "__main__":

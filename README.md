@@ -116,3 +116,7 @@ The current objective is to establish a reliable core experience centered around
 The initial Flask page provides a private dashboard for a daily mood check-in, medication reminders, appointments, journal reflections, and personal milestones. These entries are stored in the browser's local storage on the current device; they are not sent to the Flask server or synced between devices.
 
 Browser local storage is not encrypted by Bloom. Avoid using this prototype on a shared device for information you need to keep confidential, and use **Clear my data** to remove Bloom entries from the current browser.
+
+Each tool shows its saved tracking history: daily moods, medication check-ins, past appointments, journal entries, and milestones. Only the latest mood for each day is kept. Medication history records days marked as taken; unchecking a day or removing the medication removes those records. Removing an appointment, journal entry, or milestone also removes it from its history. Milestones created before dates were added appear as "Date not recorded."
+
+Entries and their history stay in the same browser storage and are removed together by **Clear data**. They are not encrypted, synced, or kept in a separate activity log. If browser storage is unavailable or full, Bloom reports the error and does not treat the attempted change as saved.
