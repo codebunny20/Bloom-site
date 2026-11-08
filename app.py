@@ -26,6 +26,10 @@ def tool_page(slug):
         abort(404)
     return render_template(f"pages/{slug}.html", tool=tool, active=slug)
 
+@app.route("/settings")
+def settings():
+    return render_template("pages/settings.html", active="settings")
+
 
 
 @app.context_processor
