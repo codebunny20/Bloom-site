@@ -225,6 +225,20 @@ input::placeholder, textarea::placeholder { color: #aaa9a1; }
 .status-error { color: #a66053; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
 
+.settings-intro { margin: 8px 0 0; color: var(--muted); font-size: 12px; }
+.settings-card { max-width: 820px; }
+.settings-card .card-heading { align-items: center; }
+.settings-card .eyebrow { margin-bottom: 5px; }
+.settings-card .card-heading h2 { margin: 0; }
+.settings-description { max-width: 670px; margin: 16px 0 7px; color: #777e74; font-size: 12px; line-height: 1.8; }
+.settings-action { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; border-top: 1px solid var(--line); }
+.settings-action h3 { margin: 0 0 4px; color: #535a52; font-size: 12px; font-weight: 600; }
+.settings-action p { max-width: 510px; margin: 0; color: #90928b; font-size: 10px; line-height: 1.7; }
+.settings-action .small-button, .danger-button { flex: 0 0 auto; }
+.danger-button { min-height: 34px; padding: 0 13px; border: 1px solid #e8d7d1; border-radius: 7px; background: #fffaf8; color: #9c6256; cursor: pointer; font-size: 10px; font-weight: 600; white-space: nowrap; }
+.danger-button:hover { border-color: #d7b8ad; background: #fdf2ee; }
+.danger-button:focus-visible, .small-button:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
 @media (min-width: 1450px) {
     .main-content { margin-right: auto; padding-right: 100px; padding-left: 100px; }
 }
@@ -291,6 +305,7 @@ input::placeholder, textarea::placeholder { color: #aaa9a1; }
     .support-banner > div:nth-child(2) { min-width: calc(100% - 55px); }
     .support-link { margin-left: 51px; }
     .page-footer { flex-direction: column; gap: 5px; }
+    .settings-action { align-items: flex-start; flex-direction: column; gap: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

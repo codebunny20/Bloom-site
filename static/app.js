@@ -337,6 +337,39 @@
     });
 
     on("clear-data", "click", () => {
+        clearData();
+    });
+
+    on("settings-clear-data", "click", () => {
+        clearData();
+    });
+
+    on("export-data", "click", () => {
+        if (storageIssue) {
+            setStatus("Couldn't export because the saved data could not be read. Clear data to start fresh.", true);
+            return;
+        }
+        let downloadUrl;
+        try {
+            const file = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+            downloadUrl = URL.createObjectURL(file);
+            const link = document.createElement("a");
+            link.href = downloadUrl;
+            link.download = `bloom-data-${dateKey()}.json`;
+            link.click();
+            const objectUrl = downloadUrl;
+            window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+            downloadUrl = null;
+            setStatus("Your data export has been downloaded.");
+        } catch (error) {
+            setStatus("Couldn't export your data. Check your browser settings and try again.", true);
+            console.error("Bloom could not export saved data.", error);
+        } finally {
+            if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+        }
+    });
+
+    function clearData() {
         if (!window.confirm("Clear all Bloom entries saved in this browser? This cannot be undone.")) return;
         try {
             localStorage.removeItem(storageKey);
@@ -348,7 +381,7 @@
             setStatus("Couldn't clear saved data. Check your browser settings.", true);
             console.error("Bloom could not clear saved data.", error);
         }
-    });
+    }
 
     loadState();
     refreshDate();

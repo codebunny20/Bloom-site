@@ -1,12 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <h1>Settings</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Settings — Bloom{% endblock %}
+{% block content %}
+<section class="section-heading checkin-heading">
+    <div>
+        <p class="eyebrow">YOUR ACCOUNT</p>
+        <h2>Settings</h2>
+        <p class="settings-intro">Manage the data saved by Bloom on this device.</p>
+    </div>
+</section>
+
+<section class="card settings-card" aria-labelledby="data-settings-heading">
+    <div class="card-heading">
+        <div>
+            <p class="eyebrow">DATA &amp; PRIVACY</p>
+            <h2 id="data-settings-heading">Your data stays yours</h2>
+        </div>
+        <span class="card-icon sage" aria-hidden="true">⌂</span>
+    </div>
+    <p class="settings-description">Bloom stores your entries in this browser only. They are not sent to a server, synced between devices, or encrypted. Anyone with access to this browser profile may be able to see them.</p>
+    <div class="settings-action">
+        <div>
+            <h3>Download a copy</h3>
+            <p>Save your moods, medications, appointments, journal entries, and milestones as a JSON file.</p>
+        </div>
+        <button class="small-button" id="export-data" type="button">Export my data</button>
+    </div>
+    <div class="settings-action settings-danger">
+        <div>
+            <h3>Clear all data</h3>
+            <p>Permanently remove every Bloom entry saved in this browser. This cannot be undone.</p>
+        </div>
+        <button class="danger-button" id="settings-clear-data" type="button">Clear my data</button>
+    </div>
+</section>
+{% endblock %}

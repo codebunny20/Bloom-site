@@ -19,10 +19,8 @@
             {% for t in tools %}
             <a class="nav-link{% if active == t.slug %} active{% endif %}" href="{{ url_for('tool_page', slug=t.slug) }}" aria-label="{{ t.name }}" title="{{ t.name }}"><span>{{ t.icon }}</span><span class="nav-link-label">{{ t.name }}</span></a>
             {% endfor %}
+            <a class="nav-link{% if active == 'settings' %} active{% endif %}" href="{{ url_for('settings') }}" aria-label="Settings" title="Settings"{% if active == 'settings' %} aria-current="page"{% endif %}><span>⚙</span><span class="nav-link-label">Settings</span></a>
         </nav>
-        <div class="settings">
-                        <button class="settings" id="settings" type="button" aria-label="Settings" aria-controls="sidebar" aria-expanded="true" title="Settings">⚙</button>
-        </div>
         <div class="sidebar-note">
             <span class="note-sparkle">✦</span>
             <p>Small steps still count.</p>
